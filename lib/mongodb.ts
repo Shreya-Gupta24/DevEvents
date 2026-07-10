@@ -14,13 +14,6 @@ declare global{
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-//validate MondoDB URI exists
-if(!MONGODB_URI){
-    throw new Error(
-        'Please define the MONGODB_URI environment variable inside .env.local'
-    )
-}
-
 //Initialize the cache on the global object to persist across hot reloads in developement
 let cached: MongooseCache = global.mongoose || {conn :null, promise: null};
 
